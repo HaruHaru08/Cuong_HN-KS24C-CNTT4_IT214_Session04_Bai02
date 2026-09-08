@@ -1,0 +1,474 @@
+{
+  "info": {
+    "name": "MediCare Microservices API Collection",
+    "description": "Postman collection kiểm thử CRUD APIs cho 5 microservices trong hệ thống MediCare (session04_Bài02)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Patient Service (8081)",
+      "item": [
+        {
+          "name": "Lấy danh sách bệnh nhân",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/patients",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "patients"]
+            }
+          }
+        },
+        {
+          "name": "Lấy bệnh nhân theo ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/patients/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "patients", "1"]
+            }
+          }
+        },
+        {
+          "name": "Tạo mới bệnh nhân",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Nguyễn Văn A\",\n  \"dateOfBirth\": \"1990-05-15\",\n  \"gender\": \"MALE\",\n  \"phone\": \"0901234567\",\n  \"address\": \"123 Trần Hưng Đạo, Hà Nội\",\n  \"insuranceId\": \"BH123456789\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/patients",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "patients"]
+            }
+          }
+        },
+        {
+          "name": "Cập nhật bệnh nhân",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Nguyễn Văn A (Updated)\",\n  \"dateOfBirth\": \"1990-05-15\",\n  \"gender\": \"MALE\",\n  \"phone\": \"0909999999\",\n  \"address\": \"456 Lê Duẩn, Hà Nội\",\n  \"insuranceId\": \"BH987654321\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/patients/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "patients", "1"]
+            }
+          }
+        },
+        {
+          "name": "Xóa bệnh nhân",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/patients/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "patients", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Doctor Service (8082)",
+      "item": [
+        {
+          "name": "Lấy danh sách bác sĩ",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/doctors",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "doctors"]
+            }
+          }
+        },
+        {
+          "name": "Lấy bác sĩ theo ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/doctors/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "doctors", "1"]
+            }
+          }
+        },
+        {
+          "name": "Tạo mới bác sĩ",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Trần Thị B\",\n  \"specialization\": \"Tim mạch\",\n  \"licenseNumber\": \"LS001234\",\n  \"phone\": \"0912345678\",\n  \"email\": \"tranthib@medicare.vn\",\n  \"department\": \"Khoa Tim mạch\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/doctors",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "doctors"]
+            }
+          }
+        },
+        {
+          "name": "Cập nhật bác sĩ",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Trần Thị B\",\n  \"specialization\": \"Nội tim mạch\",\n  \"licenseNumber\": \"LS001234\",\n  \"phone\": \"0912345678\",\n  \"email\": \"tranthib@medicare.vn\",\n  \"department\": \"Khoa Tim mạch can thiệp\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/doctors/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "doctors", "1"]
+            }
+          }
+        },
+        {
+          "name": "Xóa bác sĩ",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/doctors/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["api", "doctors", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Appointment Service (8083)",
+      "item": [
+        {
+          "name": "Lấy danh sách lịch hẹn",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/appointments",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "appointments"]
+            }
+          }
+        },
+        {
+          "name": "Lấy lịch hẹn theo ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/appointments/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "appointments", "1"]
+            }
+          }
+        },
+        {
+          "name": "Tạo mới lịch hẹn",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patientId\": 1,\n  \"doctorId\": 1,\n  \"appointmentTime\": \"2026-09-10T09:00:00\",\n  \"reason\": \"Khám tim định kỳ\",\n  \"status\": \"SCHEDULED\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/appointments",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "appointments"]
+            }
+          }
+        },
+        {
+          "name": "Cập nhật lịch hẹn",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patientId\": 1,\n  \"doctorId\": 1,\n  \"appointmentTime\": \"2026-09-10T10:30:00\",\n  \"reason\": \"Khám tim định kỳ\",\n  \"status\": \"CONFIRMED\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8083/api/appointments/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "appointments", "1"]
+            }
+          }
+        },
+        {
+          "name": "Xóa lịch hẹn",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/api/appointments/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["api", "appointments", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Medical Record Service (8084)",
+      "item": [
+        {
+          "name": "Lấy danh sách hồ sơ bệnh án",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8084/api/medical-records",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8084",
+              "path": ["api", "medical-records"]
+            }
+          }
+        },
+        {
+          "name": "Lấy hồ sơ bệnh án theo ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8084/api/medical-records/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8084",
+              "path": ["api", "medical-records", "1"]
+            }
+          }
+        },
+        {
+          "name": "Tạo hồ sơ bệnh án mới",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patientId\": 1,\n  \"doctorId\": 1,\n  \"recordDate\": \"2026-09-08\",\n  \"diagnosis\": \"Rối loạn nhịp tim nhẹ\",\n  \"treatment\": \"Thuốc điều hòa nhịp tim, nghỉ ngơi\",\n  \"notes\": \"Tái khám sau 2 tuần\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8084/api/medical-records",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8084",
+              "path": ["api", "medical-records"]
+            }
+          }
+        },
+        {
+          "name": "Cập nhật hồ sơ bệnh án",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patientId\": 1,\n  \"doctorId\": 1,\n  \"recordDate\": \"2026-09-08\",\n  \"diagnosis\": \"Rối loạn nhịp tim đã ổn định\",\n  \"treatment\": \"Duy trì đơn thuốc\",\n  \"notes\": \"Sức khỏe tiến triển tốt\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8084/api/medical-records/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8084",
+              "path": ["api", "medical-records", "1"]
+            }
+          }
+        },
+        {
+          "name": "Xóa hồ sơ bệnh án",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8084/api/medical-records/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8084",
+              "path": ["api", "medical-records", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Pharmacy Service (8085)",
+      "item": [
+        {
+          "name": "Lấy danh sách thuốc",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8085/api/medicines",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8085",
+              "path": ["api", "medicines"]
+            }
+          }
+        },
+        {
+          "name": "Lấy thuốc theo ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8085/api/medicines/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8085",
+              "path": ["api", "medicines", "1"]
+            }
+          }
+        },
+        {
+          "name": "Tạo mới thuốc",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Aspirin 100mg\",\n  \"activeIngredient\": \"Acetylsalicylic acid\",\n  \"unit\": \"viên\",\n  \"stockQuantity\": 500,\n  \"price\": 2500.0,\n  \"manufacturer\": \"Bayer\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8085/api/medicines",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8085",
+              "path": ["api", "medicines"]
+            }
+          }
+        },
+        {
+          "name": "Cập nhật thuốc",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Aspirin 100mg\",\n  \"activeIngredient\": \"Acetylsalicylic acid\",\n  \"unit\": \"viên\",\n  \"stockQuantity\": 450,\n  \"price\": 2600.0,\n  \"manufacturer\": \"Bayer Germany\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8085/api/medicines/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8085",
+              "path": ["api", "medicines", "1"]
+            }
+          }
+        },
+        {
+          "name": "Xóa thuốc",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8085/api/medicines/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8085",
+              "path": ["api", "medicines", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
